@@ -1,11 +1,11 @@
 ckiseki
 ----
 
-![build status](https://github.com/OmeletWithoutEgg/ckiseki/workflows/build%20codebook.pdf/badge.svg)
+![build status](https://github.com/casperwang/ckiseki/workflows/build%20codebook.pdf/badge.svg)
 
 ICPC codebook used by team ckiseki from National Taiwan University
 
-The latest PDF build is available [here](https://github.com/OmeletWithoutEgg/ckiseki/raw/master/pdf/codebook.pdf)
+The latest PDF build is available [here](https://github.com/casperwang/ckiseki/raw/master/pdf/codebook.pdf)
 
 ## TODO
 
