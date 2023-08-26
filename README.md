@@ -1,11 +1,12 @@
-ckiseki
+too_soft
 ----
 
-![build status](https://github.com/casperwang/ckiseki/workflows/build%20codebook.pdf/badge.svg)
+<!-- ![build status](https://github.com/casperwang/too_soft/workflows/build%20codebook.pdf/badge.svg) -->
+[![build codebook.pdf](https://github.com/casperwang/too_soft/actions/workflows/main.yml/badge.svg)](https://github.com/casperwang/too_soft/actions/workflows/main.yml)
 
-ICPC codebook used by team ckiseki from National Taiwan University
+ICPC codebook used by team `too_soft` from National Taiwan University
 
-The latest PDF build is available [here](https://github.com/casperwang/ckiseki/raw/master/pdf/codebook.pdf)
+The latest PDF build is available [here](https://github.com/casperwang/too_soft/raw/master/pdf/codebook.pdf)
 
 ## TODO
 
