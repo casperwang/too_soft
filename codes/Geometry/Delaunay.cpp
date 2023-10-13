@@ -1,3 +1,4 @@
+/* please ensure input points are unique */
 /* A triangulation such that no points will strictly
 inside circumcircle of any triangle.
 find(root, p) : return a triangle contain given point
@@ -8,10 +9,10 @@ Voronoi diagram: for each triangle in `res`,
 the bisector of all its edges will split the region. */
 #define L(i) ((i)==0 ? 2 : (i)-1)
 #define R(i) ((i)==2 ? 0 : (i)+1)
-#define FOR for (int i = 0; i < 3; i++)
+#define F3 for (int i = 0; i < 3; i++)
 bool in_cc(const array<P,3> &p, P q) {
     i128 det = 0;
-    FOR det += i128(norm(p[i]) - norm(q)) *
+    F3 det += i128(norm(p[i]) - norm(q)) *
       cross(p[R(i)] - q, p[L(i)] - q);
     return det > 0;
 }
@@ -21,11 +22,12 @@ struct E {
   E(Tri *t_, int side_) : t(t_), side(side_){}
 };
 struct Tri {
+  bool vis;
   array<P,3> p; array<Tri*,3> ch; array<E,3> e;
-  Tri(){} Tri(P a, P b, P c) : p{a, b, c}, ch{} {}
+  Tri(P a=0, P b=0, P c=0) : vis(0), p{a,b,c}, ch{} {}
   bool has_chd() const { return ch[0] != nullptr; }
   bool contains(P q) const {
-    FOR if (ori(p[i], p[R(i)], q) < 0) return false;
+    F3 if (ori(p[i], p[R(i)], q) < 0) return false;
     return true;
   }
 } pool[maxn * 10], *it;
@@ -36,7 +38,7 @@ void link(E a, E b) {
 struct Trigs {
   Tri *root;
   Trigs() { // should at least contain all points
-    root =  // C is recommended to be about 100*MAXC^2
+    root =  // C = 100*MAXC^2 or just MAXC?
       new(it++) Tri(P(-C, -C), P(C*2, -C), P(-C, C*2));
   }
   void add_point(P p) { add_point(find(p, root), p); }
@@ -47,11 +49,11 @@ struct Trigs {
   }
   void add_point(Tri *r, P p) {
     array<Tri*, 3> t; /* split into 3 triangles */
-    FOR t[i] = new(it++) Tri(r->p[i], r->p[R(i)], p);
-    FOR link(E(t[i], 0), E(t[R(i)], 1));
-    FOR link(E(t[i], 2), r->e[L(i)]);
+    F3 t[i] = new (it++) Tri(r->p[i], r->p[R(i)], p);
+    F3 link(E(t[i], 0), E(t[R(i)], 1));
+    F3 link(E(t[i], 2), r->e[L(i)]);
     r->ch = t;
-    FOR flip(t[i], 2);
+    F3 flip(t[i], 2);
   }
   void flip(Tri* A, int a) {
     auto [B, b] = A->e[a]; /* flip edge between A,B */
@@ -65,15 +67,17 @@ struct Trigs {
     flip(X, 1); flip(X, 2); flip(Y, 1); flip(Y, 2);
   }
 };
-vector<Tri*> res; set<Tri*> vis;
+vector<Tri*> res;
 void go(Tri *now) { // store all tri into res
-  if (!vis.insert(now).second) return;
-  if (!now->has_chd()) return res.push_back(now);
+  if (now->vis) return;
+  now->vis = true;
+  if (!now->has_chd()) res.push_back(now);
   for (Tri *c: now->ch) if (c) go(c);
 }
-void build(vector<P> &ps) {
-  it = pool; res.clear(); vis.clear();
+void build(vector<P> ps) {
+  it = pool; res.clear();
   shuffle(ps.begin(), ps.end(), mt19937(114514));
   Trigs tr; for (P p: ps) tr.add_point(p);
   go(tr.root); // use `res` afterwards
+  // build_voronoi_cells(ps, res);
 }

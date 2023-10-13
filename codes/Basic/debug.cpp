@@ -1,3 +1,4 @@
+#define all(x) begin(x), end(x)
 #ifdef too_soft
 #define safe cerr<<__PRETTY_FUNCTION__<<" line "<<__LINE__<<" safe\n"
 #define debug(args...) kout("\e[1;32m[ " + string (#args) + " ]\e[0m", args)
