@@ -20,15 +20,18 @@ No test needed.
 
 ## Bitset LCS
 ### Description
-$O(n^2/w)$. need hand-written bitset (needs subtraction)
+$O(n^2/w)$. need hand-written bitset (needs subtraction)  
+The result bitset $f$ contains the answer.
+If the $i$-th position is true, the $i$-th number of the first sequence is in the answer. (Need test for this claim) 
+
 ### Test Status
-TODO
+Passed [LibreOJ #6564](https://loj.ac/s/1914563)
 
 ## Prefix Substring LCS
 ### Description
 Calculate the LCS of a prefix of $S$ and a substring of $T$ in $O((|S||T| + Q)\log |T|)$
 ### Test Status
-Passed yosupo library checker. Copied from 8BQube.
+Passed [yosupo library checker](https://judge.yosupo.jp/submission/163705). Copied from 8BQube.
 
 ## Convex 1D/1D DP
 ### Description
@@ -46,11 +49,11 @@ Passed yosupo library checker.
 ### Description
 De-Bruijn sequence construction
 ### Test Status
-Passed CSES and local test.
+Passed CSES, [regional prob](https://codeforces.com/gym/102001/problem/C) and local test.
 
 ## Josephus Problem
 ### Description
-Josephus problem $O(N)$ and faster algo.
+Josephus problem $O(N)$ and faster algo ($O(M\log N)$).
 ### Test Status
 Not even used or tested
 

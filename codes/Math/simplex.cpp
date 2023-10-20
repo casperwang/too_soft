@@ -1,5 +1,5 @@
 namespace simplex {
-// maximize c^Tx under Ax <= B
+// maximize c^Tx under Ax <= B and x >= 0
 // return VD(n, -inf) if the solution doesn't exist
 // return VD(n, +inf) if the solution is unbounded
 using VD = vector<llf>;
@@ -24,7 +24,7 @@ bool phase(int z) {
       if (!z && q[i] == -1) continue;
       if (s == -1 || d[x][i] < d[x][s]) s = i;
     }
-    if (d[x][s] > -eps) return true;
+    if (s == -1 || d[x][s] > -eps) return true;
     int r = -1;
     for (int i = 0; i < m; ++i) {
       if (d[i][s] < eps) continue;
