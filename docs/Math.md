@@ -127,14 +127,17 @@ Passed 2021 PTZ Korea.
 
 ## Polynomial Operations
 ### Description
+Calculate the product, quotient, remainder of two polynomials, and $\log, \exp$ in $O(N\log N)$.
 ### Test Status
-TODO.
+Passed NTUJ problem id 3615.
 
 ## Simplex / Simplex Construction
 ### Description
 Linear programming.
+Constraints: $Ax\leq b$.
+Maximize: $c^Tx$.
 ### Test Status
-TODO.
+Passed CF 375E.
 
 ## Adaptive Simpson
 ### Description
