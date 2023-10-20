@@ -100,11 +100,14 @@ Tested on [UOJ #487](https://uoj.ac/submission/659272), [UOJ #680](https://uoj.a
 
 Successive Shortest Path Algorithm using SPFA (Bellman-Ford algorithm).
 
+Find the minimum cost under the constraint that the flow is maximized.
+
 ### Test Status
 
 Passed [LibreOJ 102](https://loj.ac/s/1911310).
 Testdata in LOJ is not strong in general.
 
+Passed CF 277E.
 
 ## Weighted Matching
 ### Description
