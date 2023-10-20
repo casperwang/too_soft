@@ -75,8 +75,12 @@ Tested on [UOJ #487](https://uoj.ac/submission/658107).
 
 ## Minimum Cost Max Flow
 ### Description
+
+Find the minimum cost under the constraint that the flow is maximized.
+
 ### Test Status
 
+Passed CF 277E.
 
 ## Weighted Matching
 ### Description
